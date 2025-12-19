@@ -7,14 +7,24 @@ public:
     vector<int> reduceDuplicate(vector<int> nums){
         int i=0;
         int n=nums.size();
-        for(int j=0; j<n; j++){
-            if(nums[i]!=nums[j]){                
-                nums[i+1]=nums[j];
-                nums[j]=0;
-                i++;
+
+        if(n == 0) return nums; // Edge case handle karne ke liye
+
+        for(int j=1; j<n; j++){
+            if(nums[i]!=nums[j]){ 
+                i++;               
+                nums[i]=nums[j];
+                // i++;
             }
         }
-    
+
+        // i ke baad wale saare elements ko 0 karne ke liye
+        for(int k=i+1; k<n; k++){
+            nums[k]=0;
+        }
+
+        cout<<"New length of array after removing duplicates: "<<i+1<<endl;
+        
         return nums;
     }
 };
@@ -34,7 +44,7 @@ int main(){
     vector<int> result = obj.reduceDuplicate(nums);
 
     cout<<"Array after removing duplicates: ";
-    for(int i=0; i<=result.size(); i++){
+    for(int i=0; i<result.size(); i++){
         cout<<result[i]<<" ";
     }
     cout<<endl;
