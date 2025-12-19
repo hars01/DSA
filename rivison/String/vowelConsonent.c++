@@ -16,7 +16,7 @@ string transformString(const string &s) {
             out.push_back(vowelMap[ch]);            // map vowel
         } else {
             // previous alphabet letter with wrap: 'a' -> 'z'
-            char prev = (ch == 'a') ? 'z' : char(ch - 1);
+            char prev = (ch - 1);
             out.push_back(prev);
         }
     }
