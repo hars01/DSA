@@ -9,7 +9,7 @@ void primeFactorization(int num) {
     // }
 
     // 2. Handle odd factors from 3 to sqrt(num)
-    for (int i = 3; i * i <= num; i += 2) {
+    for (int i = 3; i * i <= num; i++) {
         while (num % i == 0) {
             cout << i << " ";
             num /= i;
