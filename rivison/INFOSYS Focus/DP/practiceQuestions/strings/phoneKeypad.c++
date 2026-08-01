@@ -23,8 +23,8 @@ using namespace std;
 
 class Solution {
      
-            const int mod = 1e9+7;
-            vector<int> dp;
+        const int mod = 1e9+7;
+        vector<int> dp;
    
         int memoization(int i, string &digits) {
             int n=digits.size();
@@ -76,6 +76,6 @@ int main()
     cin>>digits;
 
     cout<<s.letterCombinations(digits);
-
+    
     return 0;
 }
