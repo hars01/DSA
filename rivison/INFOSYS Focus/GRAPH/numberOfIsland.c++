@@ -49,6 +49,55 @@ class Solution {
             }
             return cnt;
         }
+
+
+        int numberofIsland(vector<vector<char>> ht){
+            
+
+            int 
+            ans=0,
+            r=ht.size(),
+            c=ht[0].size();
+
+
+            vector<int> 
+            x={1, -1, 0, 0},
+            y={0, 0, 1, -1};
+
+            queue<pair<int, int>> q;
+
+            for(int i=0; i<r; i++){
+                for(int j=0; j<c; j++){
+                    
+                    if(ht[i][j] != '1')
+                    continue;
+
+                    ans++;
+
+                    q.push({i, j});
+                    ht[i][j]='0';
+
+                    while(!q.empty()){
+                        int a = q.front().first, b = q.front().second;
+                        q.pop();
+
+
+                        for(int k=0; k<4; k++){
+                            int 
+                            rx=x[k]+a,
+                            cy=y[k]+b;
+
+                            if(rx>=0 && rx<r && cy>=0 && cy<c && ht[rx][cy] == '1')
+                            {
+                                ht[rx][cy] = '0';
+                                q.push({rx, cy});
+                            }
+                        }
+                    }
+                }
+            }
+           return ans;
+        } 
 };
 
 int main() {
@@ -66,7 +115,7 @@ int main() {
     }
 
     Solution ss;
-    int result= ss.numIsland(grid);
+    int result= ss.numberofIsland(grid);
     cout<<"Number of Island : "<<result;
 
     return 0;
